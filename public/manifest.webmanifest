@@ -1,0 +1,18 @@
+{
+  "name": "TV Pro - Cine & Series",
+  "short_name": "TV Pro",
+  "description": "Aplicación de streaming cinematográfico para Smart TV y Android TV",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0c0d14",
+  "theme_color": "#E50914",
+  "categories": ["entertainment", "video"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

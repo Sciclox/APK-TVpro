@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Pro - Cinema & Series Android TV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/web/style.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#E50914">
+  <meta name="mobile-web-app-capable" content="yes">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body class="tv-body">
+  <!-- Dynamic Ambient Backdrop Glow -->
+  <div id="ambient-backdrop" class="ambient-backdrop"></div>
+  <div class="vignette-overlay"></div>
+
+  <!-- Netflix TV Top Navigation Bar -->
+  <header class="netflix-top-nav" id="top-nav">
+    <div class="nav-left-section">
+      <!-- Netflix Iconic Ribbon Logo / TV PRO -->
+      <div class="netflix-brand" id="brand-logo" tabindex="0">
+        <span class="netflix-n-badge">N</span>
+        <span class="netflix-logo-text">TV PRO</span>
+      </div>
+      <nav class="netflix-nav-links" id="nav-links">
+        <button class="netflix-nav-item active" data-nav="home" tabindex="0">Inicio</button>
+        <button class="netflix-nav-item" data-nav="series" tabindex="0">Series</button>
+        <button class="netflix-nav-item" data-nav="movies" tabindex="0">Películas</button>
+        <button class="netflix-nav-item" data-nav="popular" tabindex="0">Novedades populares</button>
+        <button class="netflix-nav-item" data-nav="mylist" tabindex="0">Mi lista</button>
+        <button class="netflix-nav-item" data-nav="latino" tabindex="0">Español Latino</button>
+      </nav>
+    </div>
+
+    <div class="nav-right-section">
+      <!-- Search Trigger -->
+      <button class="nav-icon-btn" id="nav-search-btn" tabindex="0" title="Buscar">
+        <svg viewBox="0 0 24 24" class="nav-svg"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </button>
+
+      <!-- Kids / Kids mode -->
+      <button class="nav-text-btn" id="nav-kids-btn" tabindex="0">Niños</button>
+
+      <!-- Notifications Bell -->
+      <button class="nav-icon-btn" id="nav-notif-btn" tabindex="0" title="Notificaciones">
+        <svg viewBox="0 0 24 24" class="nav-svg"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+      </button>
+
+      <!-- User Profile Avatar (Netflix Smiley Avatar) -->
+      <div class="user-avatar-wrapper" id="nav-avatar-btn" tabindex="0" title="Perfil">
+        <div class="netflix-avatar">
+          <div class="avatar-eyes"></div>
+          <div class="avatar-smile"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable TV Experience -->
+  <main class="netflix-content-wrapper" id="main-container">
+    
+    <!-- Netflix Full-Bleed Billboard Hero -->
+    <section class="netflix-billboard" id="hero-banner">
+      <div class="billboard-backdrop-container">
+        <img id="hero-image" class="billboard-image" src="" alt="Hero Backdrop">
+        <div class="billboard-layer-left"></div>
+        <div class="billboard-layer-bottom"></div>
+        <div class="billboard-layer-top"></div>
+      </div>
+
+      <!-- Hero Information Panel -->
+      <div class="billboard-info-pane">
+        <!-- Netflix N Brand Tag -->
+        <div class="billboard-tag-row">
+          <span class="billboard-n-series">
+            <span class="n-symbol">N</span>
+            <span class="tag-label">P E L Í C U L A</span>
+          </span>
+          <span class="top10-hero-badge" id="hero-top-badge">TOP 10 HOY</span>
+        </div>
+
+        <h1 class="billboard-title" id="hero-title">Cargando Título...</h1>
+        
+        <!-- Netflix Metadata Line -->
+        <div class="billboard-meta-row">
+          <span class="match-score" id="hero-match">98% para ti</span>
+          <span class="meta-year" id="hero-year">2026</span>
+          <span class="maturity-rating" id="hero-maturity">16+</span>
+          <span class="meta-duration" id="hero-duration">1 h 54 min</span>
+          <span class="meta-quality" id="hero-quality">4K Ultra HD</span>
+          <span class="meta-audio-badge">5.1</span>
+        </div>
+
+        <p class="billboard-synopsis" id="hero-description">
+          Obteniendo catálogo de películas en ultra alta definición con audio latino y servidores dedicados...
+        </p>
+
+        <!-- Netflix CTA Buttons -->
+        <div class="billboard-actions-row">
+          <!-- Primary Play Button (Solid White) -->
+          <button class="netflix-btn btn-white" id="hero-play-btn" tabindex="0">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+            <span>Reproducir</span>
+          </button>
+          
+          <!-- Secondary Info Button (Translucent Grey) -->
+          <button class="netflix-btn btn-translucent" id="hero-info-btn" tabindex="0">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            <span>Más información</span>
+          </button>
+
+          <!-- My List Button -->
+          <button class="netflix-btn btn-circle" id="hero-list-btn" tabindex="0" title="Añadir a mi lista">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Edge Audio & Maturity Pin -->
+      <div class="billboard-edge-pin">
+        <button class="audio-toggle-btn" id="hero-audio-btn" tabindex="0" title="Sonido">
+          <svg viewBox="0 0 24 24" class="pin-svg"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </button>
+        <div class="maturity-bar-pin" id="hero-maturity-pin">16+</div>
+      </div>
+    </section>
+
+    <!-- Content Sections / Rows Wrapper -->
+    <div class="netflix-rows-container" id="rows-wrapper">
+      
+      <!-- 1. Continue Watching for User -->
+      <section class="netflix-row-section hidden" id="continue-watching-section">
+        <div class="row-header">
+          <h2 class="row-heading">Continuar viendo para Ti</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll" id="continue-watching-row"></div>
+      </section>
+
+      <!-- 2. Netflix Top 10 Today -->
+      <section class="netflix-row-section" id="top10-section">
+        <div class="row-header">
+          <h2 class="row-heading">Los 10 títulos más populares hoy: Películas</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll top10-scroll" id="top10-row"></div>
+      </section>
+
+      <!-- 3. Trending Now / Featured -->
+      <section class="netflix-row-section" id="featured-section">
+        <div class="row-header">
+          <h2 class="row-heading">Tendencias ahora</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll" id="featured-row"></div>
+      </section>
+
+      <!-- 4. Critically Acclaimed / Catalog -->
+      <section class="netflix-row-section" id="catalog-section">
+        <div class="row-header">
+          <h2 class="row-heading">Aclamadas por la crítica</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll" id="catalog-row"></div>
+      </section>
+
+      <!-- 5. Spanish Latino Dubbed -->
+      <section class="netflix-row-section" id="latino-section">
+        <div class="row-header">
+          <h2 class="row-heading">En Español Latino y Castellano</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll" id="latino-row"></div>
+      </section>
+
+      <!-- 6. 4K Ultra HD / 60 FPS -->
+      <section class="netflix-row-section" id="high-quality-section">
+        <div class="row-header">
+          <h2 class="row-heading">Disponibles en Ultra HD 4K y 60 FPS</h2>
+          <span class="row-explore-arrow">Explorar todos &gt;</span>
+        </div>
+        <div class="netflix-row-scroll" id="high-quality-row"></div>
+      </section>
+    </div>
+
+    <!-- Netflix Footer -->
+    <footer class="netflix-footer">
+      <div class="footer-links">
+        <span>Audio y subtítulos</span>
+        <span>Centro de ayuda</span>
+        <span>Términos de uso</span>
+        <span>Privacidad</span>
+        <span>Preferencias de cookies</span>
+        <span>Información corporativa</span>
+      </div>
+      <div class="footer-service-code">Código de servicio: 800-TVPRO-LATAM</div>
+      <div class="footer-copyright">© 2026 TV Pro Streaming LATAM Engine. Desarrollado con estilo Netflix TV.</div>
+    </footer>
+  </main>
+
+  <!-- Netflix Quick Preview / Details Modal -->
+  <div class="netflix-modal" id="details-modal">
+    <div class="modal-backdrop-blur" id="modal-backdrop-img"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-round-btn" id="modal-close-btn" tabindex="0" title="Cerrar">✕</button>
+      
+      <!-- Modal Billboard Header -->
+      <div class="modal-hero-header">
+        <img id="modal-poster" src="" alt="Poster" class="modal-hero-image">
+        <div class="modal-hero-gradient"></div>
+        <div class="modal-hero-content">
+          <h1 class="modal-title" id="modal-title">Cargando detalles...</h1>
+          <div class="modal-hero-actions">
+            <button class="netflix-btn btn-white" id="modal-play-btn" tabindex="0">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+              <span>Reproducir</span>
+            </button>
+            <button class="netflix-btn btn-circle" id="modal-fav-btn" tabindex="0" title="Añadir a mi lista">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+            <button class="netflix-btn btn-circle" id="modal-like-btn" tabindex="0" title="Me gusta">
+              <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Body Details -->
+      <div class="modal-body-container">
+        <div class="modal-details-grid">
+          <div class="modal-main-info">
+            <div class="modal-meta-row">
+              <span class="match-score" id="modal-rating">98% para ti</span>
+              <span class="meta-year" id="modal-tmdb">2026</span>
+              <span class="maturity-rating">16+</span>
+              <span class="meta-duration">2 h 10 min</span>
+              <span class="meta-quality">Ultra HD 4K</span>
+            </div>
+            <p class="modal-synopsis" id="modal-description">Espere un momento mientras se extrae la información...</p>
+          </div>
+
+          <div class="modal-side-meta">
+            <div class="side-meta-item">
+              <span class="meta-label">Elenco:</span>
+              <span class="meta-value" id="modal-cast">Estrellas Internacionales, Reparto de Cine</span>
+            </div>
+            <div class="side-meta-item">
+              <span class="meta-label">Géneros:</span>
+              <span class="meta-value" id="modal-genres">Cargando...</span>
+            </div>
+            <div class="side-meta-item">
+              <span class="meta-label">Este título es:</span>
+              <span class="meta-value">Emocionante, De suspenso, Aclamado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Servers Section -->
+        <div class="modal-servers-section" id="modal-servers-container">
+          <div class="servers-header">
+            <h3 class="similar-heading">Servidores de Reproducción Disponibles</h3>
+            <span class="servers-badge">5 En Línea</span>
+          </div>
+          <div class="modal-servers-grid" id="modal-servers-list">
+            <!-- Dynamic Server Cards -->
+          </div>
+        </div>
+
+        <!-- Similar Recommendations Section -->
+        <div class="modal-similar-section">
+          <h3 class="similar-heading">Más títulos similares</h3>
+          <div class="similar-grid" id="modal-gallery-scroll"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen HLS Video Player View -->
+  <div class="tv-player-overlay hidden" id="player-overlay">
+    <video id="hls-video" class="hls-video-element" autoplay crossorigin="anonymous"></video>
+    
+    <!-- Seek Bubble OSD Feedback -->
+    <div class="seek-toast hidden" id="seek-toast">
+      <span id="seek-toast-text">+10s</span>
+    </div>
+
+    <!-- Resume Playback Toast -->
+    <div class="resume-toast hidden" id="resume-toast">
+      <span>Reanudando reproducción...</span>
+    </div>
+
+    <!-- Player Controls Overlay -->
+    <div class="player-controls-container" id="player-controls">
+      <div class="player-top-bar">
+        <button class="tv-btn tv-btn-icon" id="player-back-btn" tabindex="0">
+          <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        </button>
+        <div class="player-title-info">
+          <h2 id="player-movie-title">Título de la Película</h2>
+          <span class="player-stream-source" id="player-stream-badge">HLS Direct CDN Stream</span>
+        </div>
+      </div>
+
+      <div class="player-center-status" id="player-center-status">
+        <div class="spinner hidden" id="player-spinner"></div>
+      </div>
+
+      <div class="player-bottom-bar">
+        <div class="timeline-container">
+          <span class="time-label" id="time-current">00:00</span>
+          <div class="progress-bar-bg" id="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            <div class="progress-thumb" id="progress-thumb"></div>
+          </div>
+          <span class="time-label" id="time-duration">00:00</span>
+        </div>
+
+        <div class="player-buttons-row">
+          <button class="tv-btn tv-btn-icon" id="player-rw-btn" tabindex="0" title="-10s">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+          </button>
+          <button class="tv-btn tv-btn-primary player-play-pause-btn" id="player-play-btn" tabindex="0">
+            <svg class="btn-icon" id="player-play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <button class="tv-btn tv-btn-icon" id="player-ff-btn" tabindex="0" title="+10s">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+          </button>
+          <button class="tv-btn tv-btn-secondary" id="player-quality-btn" tabindex="0" title="Calidad / Servidor">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>
+            <span>Auto (HD)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="tv-modal modal-search hidden" id="search-modal">
+    <div class="modal-content search-content">
+      <div class="search-header">
+        <button class="modal-close-btn" id="search-close-btn" tabindex="0">✕</button>
+        <h2>Buscar en Películas TV Pro</h2>
+        <div class="search-input-wrapper">
+          <input type="text" id="search-input" class="search-input" placeholder="Escribe el nombre de una película..." tabindex="0">
+        </div>
+      </div>
+      <div class="search-results-grid" id="search-results-grid"></div>
+    </div>
+  </div>
+
+  <!-- On-Screen TV Remote Overlay for PC Mouse Testing -->
+  <div class="on-screen-remote" id="remote-overlay">
+    <div class="remote-title">Control TV D-Pad</div>
+    <div class="remote-dpad">
+      <button class="dpad-btn dpad-up" id="remote-up">▲</button>
+      <button class="dpad-btn dpad-left" id="remote-left">◀</button>
+      <button class="dpad-btn dpad-ok" id="remote-ok">OK</button>
+      <button class="dpad-btn dpad-right" id="remote-right">▶</button>
+      <button class="dpad-btn dpad-down" id="remote-down">▼</button>
+    </div>
+    <button class="remote-back-btn" id="remote-back">⬅ ATRÁS (ESC)</button>
+  </div>
+
+  <!-- Global TV Notification Toast -->
+  <div class="tv-global-toast hidden" id="tv-global-toast">
+    <span id="tv-global-toast-text">Notificación</span>
+  </div>
+
+  <script type="module" src="/src/web/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

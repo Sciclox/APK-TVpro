@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center Luxury Charcoal Capsule with Border -->
+    <path
+        android:fillColor="#1E2433"
+        android:strokeColor="#F5F2EB"
+        android:strokeWidth="1.2"
+        android:pathData="M 32,42 H 76 A 8,8 0 0 1 84,50 V 58 A 8,8 0 0 1 76,66 H 32 A 8,8 0 0 1 24,58 V 50 A 8,8 0 0 1 32,42 Z" />
+    <!-- T letter in Warm Ivory -->
+    <path
+        android:fillColor="#F5F2EB"
+        android:pathData="M 36,48 H 48 V 51 H 43.5 V 60 H 40.5 V 51 H 36 Z" />
+    <!-- V letter in Warm Ivory -->
+    <path
+        android:fillColor="#F5F2EB"
+        android:pathData="M 50,48 H 53 L 56,57 L 59,48 H 62 L 57.5,60 H 54.5 Z" />
+    <!-- Dot separator in Soft Silver -->
+    <path
+        android:fillColor="#D6D0C4"
+        android:pathData="M 64.5,58 H 66.5 V 60 H 64.5 Z" />
+    <!-- PRO letters in Warm Ivory -->
+    <path
+        android:fillColor="#F5F2EB"
+        android:pathData="M 69,49 H 73 A 2.5,2.5 0 0 1 75.5,51.5 V 52.5 A 2.5,2.5 0 0 1 73,55 H 71 V 60 H 69 Z M 71,51 V 53.5 H 73 A 1,1 0 0 0 74,52.5 V 52 A 1,1 0 0 0 73,51 Z" />
+</vector>

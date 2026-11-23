@@ -1,0 +1,43 @@
+====================================================================
+           GUÍA DE INSTALACIÓN - TV PRO (ANDROID TV Y MÓVIL)
+====================================================================
+
+En esta carpeta se encuentran los instaladores oficiales (.APK) listos para usar:
+
+1. ARCHIVOS APK:
+   - TVPro-TV.apk       -> Versión diseñada para televisores con Android TV / Google TV / Firestick / TV Box (Soporte D-Pad y Leanback).
+   - TVPro-Mobile.apk   -> Versión diseñada para celulares y tablets Android (Soporte táctil, orientación vertical/horizontal y Picture-in-Picture).
+
+--------------------------------------------------------------------
+MÉTODO 1: INSTALACIÓN AUTOMÁTICA DESDE PC (RECOMENDADO)
+--------------------------------------------------------------------
+1. Haz doble clic en "instalar.bat".
+2. Aparecerá un menú interactivo:
+   - Opción [1]: Instalar en Android TV.
+   - Opción [2]: Instalar en Celular / Móvil.
+   - Opción [3]: Instalar en ambos.
+   - Opción [4]: Conectar por Wi-Fi ingresando la IP del TV o celular.
+3. El instalador detecta ADB automáticamente, transfiere e instala la app y te permite abrirla directamente.
+
+--------------------------------------------------------------------
+MÉTODO 2: INSTALACIÓN MANUAL EN ANDROID TV / GOOGLE TV
+--------------------------------------------------------------------
+Opción A: Por Memoria USB
+1. Copia "TVPro-TV.apk" a una memoria USB (Pendrive).
+2. Conecta la memoria al televisor o TV Box.
+3. Abre un explorador de archivos en tu TV (ej: X-plore, File Commander).
+4. Selecciona "TVPro-TV.apk" y pulsa "Instalar".
+(Si es la primera vez, el TV te pedirá activar "Instalar apps de fuentes desconocidas").
+
+Opción B: Mediante la app "Send Files to TV"
+1. Instala "Send Files to TV" tanto en tu teléfono/PC como en el TV.
+2. Envía "TVPro-TV.apk" desde tu dispositivo al TV.
+3. Abre el archivo recibido e instálalo.
+
+--------------------------------------------------------------------
+MÉTODO 3: INSTALACIÓN EN MÓVIL / CELULAR ANDROID
+--------------------------------------------------------------------
+1. Pasa "TVPro-Mobile.apk" a tu celular (vía WhatsApp, Telegram, Google Drive o cable USB).
+2. Pulsa sobre el archivo en el teléfono.
+3. Acepta los permisos de instalación de fuentes desconocidas y pulsa "Instalar".
+====================================================================

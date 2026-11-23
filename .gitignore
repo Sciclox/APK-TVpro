@@ -10,3 +10,17 @@ out/
 .nuxt/
 .env
 .env.local
+node_modules/
+build/
+dist/
+target/
+.gradle/
+local.properties
+*.apk
+*.aab
+.idea/
+.vscode/
+src-tauri/target/
+android-app/app/build/
+android-app/app-mobile/build/
+android-app/core/build/
